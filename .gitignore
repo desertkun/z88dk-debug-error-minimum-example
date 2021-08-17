@@ -1,0 +1,6 @@
+*.o
+*.map
+*.sym
+*.bin
+example
+.idea

@@ -1,10 +1,19 @@
 SOURCES := $(wildcard *.c)
 OBJECTS = $(SOURCES:.c=.o)
 
+JUST_PRINT := $(findstring n,$(MAKEFLAGS))
+ifneq (,$(JUST_PRINT))
+CC = gcc
+else
+CC = zcc
+CFLAGS = +zx -debug
+EXAMPLE_FLAGS = -m -create-app
+endif
+
 all: example__.bin
 
 example__.bin: $(OBJECTS)
-	zcc +zx -m -debug -create-app -o example $(OBJECTS) -subtype=bin
+	$(CC) $(CFLAGS) $(EXAMPLE_FLAGS) -o example $(OBJECTS) -subtype=bin
 
 clean:
 	@rm -rf *.o
@@ -15,6 +24,6 @@ clean:
 .PHONY: clean
 
 %.o: %.c
-	zcc +zx -debug -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 

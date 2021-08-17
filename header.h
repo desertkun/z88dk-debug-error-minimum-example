@@ -4,4 +4,4 @@ enum the_enum
 	VALUE_1 = 1,
 };
 
-extern void haha();
+extern int haha(int a, int b);

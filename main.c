@@ -2,6 +2,5 @@
 
 int main()
 {
-	haha();
-	return 10;
+    return haha(13, 2);
 }
