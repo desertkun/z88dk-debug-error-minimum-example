@@ -4,4 +4,4 @@ enum the_enum
 	VALUE_1 = 1,
 };
 
-extern int haha(int a, int b);
+extern int haha(int a, int b) __z88dk_callee;

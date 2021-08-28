@@ -1,6 +1,8 @@
 #include "header.h"
+#include <stdio.h>
 
 int main()
 {
-    return haha(13, 2);
+    int h = haha(13, 2);
+    printf("result is: %d, supposed to be: 30\n", h);
 }
